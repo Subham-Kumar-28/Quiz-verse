@@ -1,0 +1,6 @@
+{
+  "name": "QuizVerse - Computer Science Quiz & Battle Arena",
+  "description": "Interactive computer science quiz platform featuring subject-wise practice, timed challenges, streak battles, and multiplayer quiz rooms.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

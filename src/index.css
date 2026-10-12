@@ -1,0 +1,289 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom glow and accent styling for dark gaming theme */
+.glow-cyan {
+  box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.35);
+}
+
+.glow-purple {
+  box-shadow: 0 0 25px -5px rgba(168, 85, 247, 0.35);
+}
+
+.glow-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.glow-card:hover {
+  box-shadow: 0 14px 35px -8px rgba(147, 51, 234, 0.25), 0 0 15px -3px rgba(6, 182, 212, 0.2);
+}
+
+/* ==========================================================
+   DAY / LIGHT MODE COMPATIBILITY LAYER
+   ========================================================== */
+
+html.light-theme,
+body.light-theme {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Surfaces */
+.light-theme main {
+  color: #0f172a;
+}
+
+.light-theme [class*="bg-[#0b0f19]"] {
+  background-color: #f8fafc !important;
+}
+
+.light-theme [class*="bg-[#0f172a]"] {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.06), 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.light-theme [class*="bg-slate-900"] {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light-theme [class*="bg-slate-950"] {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Typography in Day Mode */
+.light-theme h1,
+.light-theme h2,
+.light-theme h3,
+.light-theme h4,
+.light-theme h5 {
+  color: #0f172a !important;
+}
+
+.light-theme .text-slate-100,
+.light-theme .text-slate-200,
+.light-theme .text-slate-300 {
+  color: #334155 !important;
+}
+
+.light-theme .text-slate-400 {
+  color: #64748b !important;
+}
+
+.light-theme .text-slate-500 {
+  color: #64748b !important;
+}
+
+/* Headings and labels with text-white inside cards */
+.light-theme [class*="bg-[#0f172a]"] .text-white,
+.light-theme [class*="bg-slate-900"] .text-white,
+.light-theme [class*="bg-slate-950"] .text-white,
+.light-theme p.text-white,
+.light-theme span.text-white,
+.light-theme div.text-white {
+  color: #0f172a !important;
+}
+
+/* Cyan & Purple accents in Day Mode (adjusted for high contrast) */
+.light-theme .text-cyan-300,
+.light-theme .text-cyan-400 {
+  color: #0891b2 !important;
+}
+
+.light-theme .text-purple-300,
+.light-theme .text-purple-400 {
+  color: #7c3aed !important;
+}
+
+.light-theme .text-amber-300,
+.light-theme .text-amber-400 {
+  color: #d97706 !important;
+}
+
+.light-theme .text-rose-300,
+.light-theme .text-rose-400 {
+  color: #e11d48 !important;
+}
+
+.light-theme .text-emerald-300,
+.light-theme .text-emerald-400 {
+  color: #059669 !important;
+}
+
+/* Borders */
+.light-theme [class*="border-slate-800"],
+.light-theme [class*="border-slate-700"] {
+  border-color: #e2e8f0 !important;
+}
+
+/* Inputs and Selects */
+.light-theme input,
+.light-theme select {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light-theme input::placeholder {
+  color: #94a3b8 !important;
+}
+
+.light-theme select option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Action Buttons with Gradients or Solid Colors KEEP crisp white text */
+.light-theme button.bg-gradient-to-r,
+.light-theme button.bg-gradient-to-r *,
+.light-theme button.bg-purple-600,
+.light-theme button.bg-purple-600 *,
+.light-theme button.bg-indigo-600,
+.light-theme button.bg-indigo-600 *,
+.light-theme button.bg-rose-500,
+.light-theme button.bg-rose-500 *,
+.light-theme button.bg-rose-600,
+.light-theme button.bg-rose-600 *,
+.light-theme button.bg-emerald-600,
+.light-theme button.bg-emerald-600 *,
+.light-theme button.bg-cyan-500,
+.light-theme button.bg-cyan-500 * {
+  color: #ffffff !important;
+}
+
+/* Secondary / Ghost buttons in Day Mode */
+.light-theme button.bg-slate-900,
+.light-theme button.bg-slate-850,
+.light-theme button.bg-slate-800 {
+  background-color: #ffffff !important;
+  color: #334155 !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light-theme button.bg-slate-900:hover,
+.light-theme button.bg-slate-850:hover,
+.light-theme button.bg-slate-800:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Quiz Option Button States */
+.light-theme button[type="button"].bg-slate-900\/80 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #1e293b !important;
+}
+
+.light-theme button[type="button"].bg-slate-900\/80:hover {
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light-theme .bg-cyan-950\/50,
+.light-theme .bg-cyan-950\/40,
+.light-theme .bg-cyan-950 {
+  background-color: #ecfeff !important;
+  border-color: #22d3ee !important;
+  color: #0e7490 !important;
+}
+
+.light-theme .bg-purple-950\/40,
+.light-theme .bg-purple-950\/50,
+.light-theme .bg-purple-950\/30,
+.light-theme .bg-purple-950 {
+  background-color: #faf5ff !important;
+  border-color: #c084fc !important;
+  color: #6b21a8 !important;
+}
+
+.light-theme .bg-indigo-950\/50,
+.light-theme .bg-indigo-950 {
+  background-color: #eef2ff !important;
+  border-color: #818cf8 !important;
+  color: #3730a3 !important;
+}
+
+.light-theme .bg-emerald-950,
+.light-theme .bg-emerald-950\/60 {
+  background-color: #ecfdf5 !important;
+  border-color: #34d399 !important;
+  color: #065f46 !important;
+}
+
+.light-theme .bg-rose-950,
+.light-theme .bg-rose-950\/60 {
+  background-color: #fff1f2 !important;
+  border-color: #fb7185 !important;
+  color: #9f1239 !important;
+}
+
+.light-theme .bg-amber-950,
+.light-theme .bg-amber-950\/40,
+.light-theme .bg-amber-950\/60 {
+  background-color: #fffbeb !important;
+  border-color: #fcd34d !important;
+  color: #92400e !important;
+}
+
+/* Table in Day Mode */
+.light-theme table thead {
+  background-color: #f1f5f9 !important;
+  color: #475569 !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light-theme table tbody tr {
+  border-color: #e2e8f0 !important;
+}
+
+.light-theme table tbody tr:hover {
+  background-color: #f8fafc !important;
+}
+
+.light-theme table tbody td {
+  color: #334155 !important;
+}
+
+.light-theme table tbody td .text-white {
+  color: #0f172a !important;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.4);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.6);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.9);
+}
+
+.light-theme ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+.light-theme ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+.light-theme ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
